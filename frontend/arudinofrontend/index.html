@@ -1,0 +1,133 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>arudinofrontend</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        /* border: 1px solid #333; */
+      }
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      
+      .map-dot {
+        background-color: #f00;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .map {
+        width: 100%;
+        height: 100%;
+      }
+      nav {
+        height: 50px;
+        border-bottom: 1px solid #333;
+      }
+      main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+      }
+
+      section#main {
+        display: flex;
+        height: 100%;
+      }
+
+      section#main > section {
+        flex: 1;
+        display: flex;
+      }
+
+      section#main > section#control {
+        flex: 0.3;
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #333;
+      }
+
+      section#control > section#debug {
+        flex: 0.2;
+        display: flex;
+        flex-direction: column;
+      }
+
+      section#control > section#debug > div.heading {
+        border-bottom: 1px solid #333;
+      }
+
+      section#control > section#debug > div.list {
+        display: flex;
+        flex-direction: column; 
+      }
+
+      section#control> section#debug > div.list > div.debugData {
+        background: #00000010;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 2px;
+        line-height: 1em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      gmp-map {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyDC2XU1sWIdbjFuZYDl-ouqJA68lISkjfs", v: "weekly"});</script>
+  </head>
+  <body>
+
+    <main>
+      <nav>NAV</nav>
+      <section id="main">
+        <section id="control">
+          <section id="mainControl">
+            CONTROL
+          </section>
+          <section id="debug">
+            <div class="heading">
+              DEBUG
+            </div>
+            <div class="list">
+
+            </div>
+          </section>
+        </section>
+        <section id="view">
+          <div class="map">
+            <gmp-map
+              center="37.42,-122.1"
+              zoom="18"
+              map-id="b1db942066b0fb54fbc0313c"
+            >
+              <!-- <div id="controls" slot="control-inline-start-block-start">
+                <h3>My Google Maps Demo</h3>
+              </div> -->
+            </gmp-map>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/src/map.ts"></script>
+    <script type="module" src="/src/main.ts"></script>
+
+  </body>
+</html>
