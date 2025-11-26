@@ -5,7 +5,7 @@
 //// RX Pin
 #define RX 2
 #define TX 3
-#define PHONE_NUMBER "+919955538487"
+#define PHONE_NUMBER "+91988888887"
 
 
 // Globals
@@ -287,7 +287,7 @@ void openMQTTConnection() {
   /*
     Open a Network for MQTT client, connect using MQTT broker like HiveMQ, URL, Login & password
   */
-  AT(F("AT+QMTOPEN=0,\"18.136.124.119\",1883"), OK);
+  AT(F("AT+QMTOPEN=0,\"18.100.124.119\",1883"), OK);
   AT(F("AT+QMTCONN=0,\"client001\",\"test\",\"test\""), OK);  
 }
 
