@@ -1,0 +1,24 @@
+{
+  "name": "arduino_p1_backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "node --watch index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mongodb": "^7.0.0",
+    "mqtt": "^5.14.1",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.9"
+  }
+}

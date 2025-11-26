@@ -1,0 +1,37 @@
+services:
+  backend:
+    build: backend
+    ports:
+      - 8980:8080
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MQTT_HOST: '6a99624836bd49aeaff2cd08268824d0.s1.eu.hivemq.cloud'
+      MQTT_PORT: 8883
+      MQTT_USERNAME: 'bksan'
+      MQTT_PASSWORD: 'P@ssw0rd'
+      MQTT_PROTOCOL: 'mqtts'
+
+  frontend:
+    build: frontend/arudinofrontend
+    environment:
+      VITE_BACKEND_HOST: 'localhost'
+      VITE_BACKEND_PORT: '8980'
+    ports:
+      - 8989:80
+  
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    command: mongod --quiet --logpath /dev/null
+    healthcheck:
+      test: ["CMD", "echo", "db.runCommand('ping').ok", "|", "mongosh", "--port", "27017", "--quiet"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+    volumes:
+      - mongodb:/data/db
+
+volumes:
+  mongodb:

@@ -1,0 +1,5 @@
+dev:
+	VITE_BACKEND_HOST="localhost" VITE_BACKEND_PORT="8980" npm run dev
+
+prod:
+	VITE_BACKEND_HOST="18.136.124.119" VITE_BACKEND_PORT="8980" npm run build
