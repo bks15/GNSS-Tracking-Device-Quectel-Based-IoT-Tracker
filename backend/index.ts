@@ -33,7 +33,7 @@ async function saveToDB({topic, data}: {topic: string, data: string}) {
     const lng = nmeaToDegree(chunks[3]);
     res.data = {lat, lng};
   }
-  
+  res['timestamp'] = +(new Date());
   console.log('SAVING TO DB', res);
   server.broadcast(JSON.stringify(res));
 }
