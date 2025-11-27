@@ -31,7 +31,7 @@ export async function createServers(wsCB: WSCB, cb: (req: any, res: any) => Prom
           console.log('received: %s', data);
         });
       
-        ws.send('something');
+        ws.send('Connected Live Logs');
       });
       resolve({
         broadcast: (message: any) => {
